@@ -3,13 +3,17 @@ import Head from "next/head";
 import Link from "next/link";
 
 const Home: NextPage = () => {
+  const showMenu = () => {
+    document.getElementById("toggle-nav")?.classList.toggle("hidden");
+  };
+
   return (
     <div>
       {/* Navigation */}
       <nav className="bg-white dark:bg-gray-800 shadow border-b">
         <div className="container mx-auto">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="flex items-center justify-between h-16">
+          <div className="max-w-7xl mx-auto px-8 lg:px-0">
+            <div className="flex items-center justify-between h-20">
               <div className="w-full justify-between flex items-center">
                 <Link href="/">
                   <a className="flex-shrink-0">
@@ -22,23 +26,23 @@ const Home: NextPage = () => {
                 </Link>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    <Link href="/#">
-                      <a className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        Home
+                    <Link href="/#who-we-are">
+                      <a className="hover:text-primary dark:hover:text-white px-3 py-2 rounded-md font-medium">
+                        Who We Are
                       </a>
                     </Link>
-                    <Link href="/#">
-                      <a className="text-primary dark:text-white  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        Gallery
+                    <Link href="/#partners">
+                      <a className="hover:text-primary dark:hover:text-white px-3 py-2 rounded-md font-medium">
+                        Partners
                       </a>
                     </Link>
-                    <Link href="/#">
-                      <a className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        Content
+                    <Link href="/#testimonial">
+                      <a className="hover:text-primary dark:hover:text-white px-3 py-2 rounded-md font-medium">
+                        Testimonial
                       </a>
                     </Link>
-                    <Link href="/#">
-                      <a className="text-gray-500  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <Link href="/#contact">
+                      <a className="hover:text-primary dark:hover:text-white px-3 py-2 rounded-md font-medium">
                         Contact
                       </a>
                     </Link>
@@ -49,7 +53,10 @@ const Home: NextPage = () => {
                 <div className="ml-4 flex items-center md:ml-6"></div>
               </div>
               <div className="-mr-2 flex md:hidden">
-                <button className="text-gray-800 dark:text-white hover:text-gray-500 inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
+                <button
+                  className="text-gray-800 dark:text-white hover:text-gray-500 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+                  onClick={showMenu}
+                >
                   <svg
                     width="20"
                     height="20"
@@ -64,24 +71,24 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-          <div className="md:hidden">
+          <div id="toggle-nav" className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link href="/#">
+              <Link href="/#who-we-are">
                 <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Home
+                  Who We Are
                 </a>
               </Link>
-              <Link href="/#">
+              <Link href="/#partners">
                 <a className="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Gallery
+                  Partners
                 </a>
               </Link>
-              <Link href="/#">
+              <Link href="/#testimonial">
                 <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Content
+                  Testimonial
                 </a>
               </Link>
-              <Link href="/#">
+              <Link href="/#contact">
                 <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                   Contact
                 </a>
@@ -92,18 +99,18 @@ const Home: NextPage = () => {
       </nav>
 
       {/* Hero */}
-      <div className="bg-primary">
-        <div className="container mx-auto dark:bg-gray-800 overflow-hidden relative">
-          <div className="text-start md:w-1/2 py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+      <div className="bg-primary py-16">
+        <div className="container mx-auto dark:bg-gray-800 overflow-hidden relative px-4 md:px-0">
+          <div className="text-start md:w-1/2 py-16 pr-4 sm:pr-6 lg:py-16 lg:pr-8 z-20">
             <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
-              <span className="block">Want to be millionaire ?</span>
-              <span className="block text-indigo-500">
-                It&#x27;s today or never.
+              <span className="block text-white">Talenta Teknologi Lokal</span>
+              <span className="block text-white">
+                Yang Berdaya Saing Global
               </span>
             </h2>
             <p className="text-xl mt-4 text-white">
-              I had noticed that both in the very poor and very rich extremes of
-              society the mad were often allowed to mingle freely
+              Mulai karirmu di bidang teknologi sebagai programmer, web atau
+              mobile developer
             </p>
             <div className="lg:mt-0 lg:flex-shrink-0">
               <div className="mt-12 inline-flex rounded-md shadow">
@@ -111,92 +118,98 @@ const Home: NextPage = () => {
                   type="button"
                   className="py-4 px-6  bg-secondary hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  Get started
+                  Gabung Sekarang
                 </button>
               </div>
             </div>
           </div>
           <img
-            src="/images/object/1.png"
+            src="/build-website.svg"
             className="absolute h-full max-w-1/2 hidden lg:block right-0 top-0"
           />
         </div>
       </div>
 
       {/* Intro */}
-
-      <section className="container mx-auto">
-        <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
+      <section id="who-we-are" className="container mx-auto py-16 px-4 md:px-0">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-gray-800">
           <div className="flex flex-wrap md:-mx-8">
             <div className="w-full lg:w-1/2 md:px-8">
               <div className="mb-12 lg:mb-0 pb-12 lg:pb-0 border-b lg:border-b-0">
                 <h2 className="mb-4 text-3xl lg:text-4xl font-bold font-heading dark:text-white">
-                  Sed ac magna sit amet risus tristique interdum, at vel velit
-                  in hac habitasse platea dictumst.
+                  Komunitas Untuk Memajukan Daerah
                 </h2>
                 <p className="mb-8 leading-loose text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  sagittis, quam nec venenatis lobortis, mi risus tempus nulla,
-                  sed porttitor est nibh at nulla. Praesent placerat enim ut ex
-                  tincidunt vehicula. Fusce sit amet dui tellus.
+                  Hammercode adalah sebuah komunitas teknologi yang diinisiasi
+                  sebagai wadah berkumpulnya para pembelajar, programmer,
+                  web/mobile developer, dan pelaku industri teknologi lainnya
+                  yang berada di kota Palu dan sekitarnya. Kegiatan yang Kami
+                  selenggarakan berorientasi pada knowledge-transfer yang
+                  diharapkan dapat mempercepat pemerataan keterampilan di bidang
+                  teknologi informasi serta mencetak talenta teknologi yang siap
+                  kerja. Hammercode tempat yang cocok untukmu yang ingin belajar
+                  tentang coding/pemograman dan software engineering.
                 </p>
                 <div className="w-full md:w-1/3">
                   <button
                     type="button"
                     className="py-4 px-6  bg-secondary hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                   >
-                    See more
+                    Lebih Lanjut
                   </button>
                 </div>
               </div>
             </div>
             <div className="w-full lg:w-1/2 md:px-8">
               <ul className="space-y-12">
-                <li className="flex -mx-4">
+                <li className="flex md:-mx-4">
                   <div className="px-4">
-                    <span className="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">
+                    <span className="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50">
                       1
                     </span>
                   </div>
                   <div className="px-4">
                     <h3 className="my-4 text-xl font-semibold dark:text-white">
-                      Responsive Elements
+                      Mentoring
                     </h3>
                     <p className="text-gray-500 dark:text-gray-300 leading-loose">
-                      All elements are responsive and provide the best display
-                      in all screen size. It&#x27;s magic !
+                      Teman-teman anggota komunitas dari berbagai perusahaan
+                      teknologi siap membantu Kamu untuk persiapan aplikasi
+                      internship dan full-time job
                     </p>
                   </div>
                 </li>
-                <li className="flex -mx-4">
+                <li className="flex md:-mx-4">
                   <div className="px-4">
-                    <span className="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">
+                    <span className="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50">
                       2
                     </span>
                   </div>
                   <div className="px-4">
                     <h3 className="my-4 text-xl font-semibold dark:text-white">
-                      Flexible Team
+                      Kelas & Workshop
                     </h3>
                     <p className="text-gray-500 dark:text-gray-300 leading-loose">
-                      Flexibility is the key. All team is available 24/24 and
-                      joinable every day on our hotline.
+                      Tersedia kelas dan workshop untuk berbagai bidang, seperti
+                      web, mobile apps hingga data. Tingakat materi yang
+                      disampaikan bervariasi, mulai dari beginner hingga
+                      advanced.
                     </p>
                   </div>
                 </li>
-                <li className="flex -mx-4">
+                <li className="flex md:-mx-4">
                   <div className="px-4">
-                    <span className="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">
+                    <span className="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50">
                       3
                     </span>
                   </div>
                   <div className="px-4">
                     <h3 className="my-4 text-xl font-semibold dark:text-white">
-                      Ecologic Software
+                      Tech Talk
                     </h3>
                     <p className="text-gray-500 dark:text-gray-300 leading-loose">
-                      Our Software are ecologic and responsable. Green is not
-                      just a color, it&#x27;s a way of life.
+                      Acara knowledge-sharing bulanan yang diisi oleh pemateri
+                      dari pelaku industri dan teman-teman komunitas.
                     </p>
                   </div>
                 </li>
@@ -207,116 +220,94 @@ const Home: NextPage = () => {
       </section>
 
       {/* Partners */}
-
-      <div className="px-6 py-6 bg-primary dark:bg-gray-800 md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
-        <div className="xl:w-0 xl:flex-1">
-          <h2 className="text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-3xl sm:leading-9">
-            Receive alert about new commit or pull request on your github
-          </h2>
-          <p className="mt-3 max-w-3xl text-lg leading-6 text-white">
-            No account or email required. We use push notifications. You can
-            choose between several modes and define your own alert threshold.
-          </p>
+      <section id="partners" className="bg-primary">
+        <div className="container mx-auto py-6 dark:bg-gray-800 md:py-16 lg:py-16">
+          <div className="text-center">
+            <h2 className="text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-3xl sm:leading-9">
+              Belajar Dari Ekspert Teknologi
+            </h2>
+            <p className="mt-3 text-lg leading-6 text-white">
+              Ambil kesempatan untuk belajar dari ekspert dari perusahaan
+              teknologi
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Testimonial */}
-      <div className="w-full flex flex-col md:flex-row gap-4 mb-8 md:mb-0 flex-between items-center p-8">
-        <div className="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
-          <p className="text-gray-600 dark:text-white">
-            <span className="font-bold text-indigo-500 text-lg">“</span>
-            To get social media testimonials like these, keep your customers
-            engaged with your social media accounts by posting regularly
-            yourself
-            <span className="font-bold text-indigo-500 text-lg">”</span>
-          </p>
-          <div className="flex items-center mt-4">
-            <a href="#" className="block relative">
-              <img
-                alt="profil"
-                src="/images/person/1.jpg"
-                className="mx-auto object-cover rounded-full h-10 w-10 "
-              />
-            </a>
-            <div className="flex flex-col ml-2 justify-between">
-              <span className="font-semibold text-indigo-500 text-sm">
-                Jean Miguel
-              </span>
-              <span className="dark:text-gray-400 text-xs flex items-center">
-                User of Tail-Kit
-                <img src="/icons/rocket.svg" className="ml-2 h-4 w-4" />
-              </span>
+      <section id="testimonial" className="container mx-auto py-16">
+        <div className="w-full flex flex-col md:flex-row mb-8 md:mb-0 justify-center items-center">
+          <div className="bg-white dark:bg-gray-800 w-72 h-72 border shadow-lg m-4 rounded-xl p-6">
+            <p className="text-gray-600 dark:text-white">
+              <span className="font-bold text-primary text-lg">“</span>
+              Hammercode komunitas nya friendly banget, baik mentor, dan peserta
+              pelajarnya. Kelas di hammercode jg itu sangat seru, metode
+              mengajar para mentornya sangat membntu, dijamin paham 1000%
+              <span className="font-bold text-primary text-lg">”</span>
+            </p>
+            <div className="flex items-center mt-4">
+              <div className="flex flex-col justify-between">
+                <span className="font-semibold text-primary text-sm">Agi</span>
+                <span className="dark:text-gray-400 text-xs flex items-center">
+                  Universitas Tadulako 17
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white dark:bg-gray-800 w-72 border shadow-lg m-4 rounded-xl p-6">
+            <p className="text-gray-600 dark:text-white">
+              <span className="font-bold text-primary text-lg">“</span>
+              As a software engineer or who wants to, prepare yourself to face
+              the real IT industry. Since studying from college is not enough,
+              you have to find your mentor. In hammercode you can find it, and
+              expand your network. Because your network is your net worth
+              <span className="font-bold text-primary text-lg">”</span>
+            </p>
+            <div className="flex items-center mt-4">
+              <div className="flex flex-col justify-between">
+                <span className="font-semibold text-primary text-sm">
+                  Zulnabil
+                </span>
+                <span className="dark:text-gray-400 text-xs flex items-center">
+                  Frontend Engineer @ 99.co
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white dark:bg-gray-800 w-72 h-72 border shadow-lg m-4 rounded-xl p-6">
+            <p className="text-gray-600 dark:text-white">
+              <span className="font-bold text-primary text-lg">“</span>
+              Dengan bantuan dan dorongan teman-teman dan mentor yg ada di
+              komunitas, saya berhasil mendapatkan kesempatan magang di tahun
+              pertama dan kedua kuliah
+              <span className="font-bold text-primary text-lg">”</span>
+            </p>
+            <div className="flex items-center mt-4">
+              <div className="flex flex-col justify-between">
+                <span className="font-semibold text-primary text-sm">
+                  Akwan Maroso
+                </span>
+                <span className="dark:text-gray-400 text-xs flex items-center">
+                  Backend Engineer Intern @ Bareksa
+                </span>
+              </div>
             </div>
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
-          <p className="text-gray-600 dark:text-white">
-            <span className="font-bold text-indigo-500 text-lg">“</span>
-            To get social media testimonials like these, keep your customers
-            engaged with your social media accounts by posting regularly
-            yourself
-            <span className="font-bold text-indigo-500 text-lg">”</span>
-          </p>
-          <div className="flex items-center mt-4">
-            <a href="#" className="block relative">
-              <img
-                alt="profil"
-                src="/images/person/1.jpg"
-                className="mx-auto object-cover rounded-full h-10 w-10 "
-              />
-            </a>
-            <div className="flex flex-col ml-2 justify-between">
-              <span className="font-semibold text-indigo-500 text-sm">
-                Jean Miguel
-              </span>
-              <span className="dark:text-gray-400 text-xs flex items-center">
-                User of Tail-Kit
-                <img src="/icons/rocket.svg" className="ml-2 h-4 w-4" />
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4">
-          <p className="text-gray-600 dark:text-white">
-            <span className="font-bold text-indigo-500 text-lg">“</span>
-            To get social media testimonials like these, keep your customers
-            engaged with your social media accounts by posting regularly
-            yourself
-            <span className="font-bold text-indigo-500 text-lg">”</span>
-          </p>
-          <div className="flex items-center mt-4">
-            <a href="#" className="block relative">
-              <img
-                alt="profil"
-                src="/images/person/1.jpg"
-                className="mx-auto object-cover rounded-full h-10 w-10 "
-              />
-            </a>
-            <div className="flex flex-col ml-2 justify-between">
-              <span className="font-semibold text-indigo-500 text-sm">
-                Jean Miguel
-              </span>
-              <span className="dark:text-gray-400 text-xs flex items-center">
-                User of Tail-Kit
-                <img src="/icons/rocket.svg" className="ml-2 h-4 w-4" />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
 
       {/* Get Started */}
-      <div className="bg-white dark:bg-gray-800 ">
-        <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+      <div id="contact" className="bg-white dark:bg-gray-800 px-4">
+        <div className="text-center w-full mx-auto py-16 z-20">
           <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
-            <span className="block">Want to be millionaire ?</span>
-            <span className="block text-indigo-500">
-              It&#x27;s today or never.
+            <span className="block">Punya Pertanyaan</span>
+            <span className="block text-primary">
+              Atau Ingin Sekedar Ngobrol ?
             </span>
           </h2>
           <p className="text-xl mt-4 max-w-md mx-auto">
-            I had noticed that both in the very poor and very rich extremes of
-            society the mad were often allowed to mingle freely
+            Kami dengan senang hati terhubung dengan Anda. Cukup klik tombol di
+            bawah
           </p>
           <div className="lg:mt-0 lg:flex-shrink-0">
             <div className="mt-12 inline-flex rounded-md shadow">
@@ -324,7 +315,7 @@ const Home: NextPage = () => {
                 type="button"
                 className="py-4 px-6  bg-secondary hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
               >
-                Get started
+                Hubungi Kami
               </button>
             </div>
           </div>
@@ -333,8 +324,8 @@ const Home: NextPage = () => {
 
       {/* Footer */}
       <footer className="bg-white dark:bg-gray-800 py-6 xl:pt-8 border-t">
-        <div className="max-w-screen-lg xl:max-w-screen-xl flex justify-between mx-auto px-4 sm:px-6 md:px-8 text-gray-400 dark:text-gray-300">
-          <div className="flex border-gray-200 max-w-xs items-center justify-between">
+        <div className="max-w-screen-lg xl:max-w-screen-xl flex flex-col md:flex-row md:justify-between mx-auto px-4 sm:px-6 md:px-8 text-gray-400 dark:text-gray-300">
+          <div className="flex border-gray-200 items-center justify-between mb-6 md:mb-0">
             <a href="#">
               <svg
                 width="20"
@@ -397,7 +388,7 @@ const Home: NextPage = () => {
             </a>
           </div>
           <div className="text-center font-light flex items-center justify-center">
-            Created by ALGOL007
+            Komunitas Hammercode 2021
           </div>
         </div>
       </footer>
